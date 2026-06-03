@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gradient EDU | Educational Assessment Intelligence Platform</title>
-  <meta name="description" content="Gradient EDU är en digital bedömnings- och analysplattform för grundskolan som samlar formativ och summativ bedömning, elevprogression, riskindikatorer och pedagogiska rapporter.">
+  <meta name="description" content="Gradient EDU är en digital bedömnings- och analysplattform för grundskolan som samlar formativ och summativ bedömning, elevprogression, riskindikatorer, åtgärdsplaner och pedagogiska rapporter.">
   <meta property="og:title" content="Gradient EDU">
   <meta property="og:description" content="Educational Assessment Intelligence Platform för lärare, skolledning och systematiskt kvalitetsarbete.">
   <meta property="og:type" content="website">
@@ -12,15 +12,18 @@
   <meta name="theme-color" content="#2563eb">
   <style>
     :root {
-      --ink: #0f172a;
-      --muted: #64748b;
+      --ink: #111827;
+      --soft-ink: #263244;
+      --muted: #667085;
+      --line: rgba(37, 99, 235, 0.14);
+      --line-strong: rgba(37, 99, 235, 0.22);
+      --paper: rgba(255, 255, 255, 0.72);
+      --paper-strong: rgba(255, 255, 255, 0.88);
       --blue: #2563eb;
       --cyan: #06b6d4;
       --violet: #7c3aed;
       --pink: #ec4899;
-      --card: rgba(255, 255, 255, 0.76);
-      --line: rgba(37, 99, 235, 0.13);
-      --shadow: 0 24px 80px rgba(15, 23, 42, 0.14);
+      --shadow: 0 18px 54px rgba(15, 23, 42, 0.12);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
@@ -38,10 +41,10 @@
       margin: 0;
       color: var(--ink);
       background:
-        linear-gradient(135deg, rgba(103, 232, 249, 0.42), rgba(255, 255, 255, 0.68) 34%, rgba(191, 219, 254, 0.52) 62%, rgba(244, 114, 182, 0.28)),
-        radial-gradient(circle at 14% 18%, rgba(34, 211, 238, 0.36), transparent 28%),
-        radial-gradient(circle at 86% 10%, rgba(236, 72, 153, 0.22), transparent 30%),
-        #f8fbff;
+        radial-gradient(circle at 16% 6%, rgba(34, 211, 238, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 10%, rgba(96, 165, 250, 0.15), transparent 32%),
+        radial-gradient(circle at 88% 88%, rgba(236, 72, 153, 0.12), transparent 34%),
+        linear-gradient(135deg, rgba(248, 252, 255, 0.98), rgba(244, 250, 255, 0.96) 38%, rgba(248, 245, 255, 0.96) 68%, rgba(255, 247, 252, 0.98));
       overflow-x: hidden;
     }
 
@@ -49,22 +52,26 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -2;
-      background-image:
-        linear-gradient(35deg, transparent 0 48%, rgba(37, 99, 235, 0.08) 49%, transparent 50%),
-        linear-gradient(145deg, transparent 0 48%, rgba(236, 72, 153, 0.07) 49%, transparent 50%);
-      background-size: 170px 170px;
-      opacity: 0.9;
+      z-index: -1;
+      background:
+        repeating-linear-gradient(142deg, transparent 0 26px, rgba(14, 165, 233, 0.10) 26px 27px, transparent 27px 54px),
+        repeating-linear-gradient(32deg, transparent 0 38px, rgba(217, 70, 239, 0.07) 38px 39px, transparent 39px 76px);
+      opacity: 0.30;
+      pointer-events: none;
     }
 
     body::after {
       content: "";
       position: fixed;
-      inset: auto -12% -22% -12%;
+      inset: auto -12% -28% -12%;
       z-index: -1;
       height: 48vh;
-      background: linear-gradient(90deg, rgba(6, 182, 212, 0.20), rgba(124, 58, 237, 0.14), rgba(236, 72, 153, 0.20));
-      filter: blur(48px);
+      background:
+        radial-gradient(circle at 16% 30%, rgba(34, 211, 238, 0.20), transparent 30%),
+        radial-gradient(circle at 50% 20%, rgba(96, 165, 250, 0.14), transparent 32%),
+        radial-gradient(circle at 84% 36%, rgba(236, 72, 153, 0.18), transparent 34%);
+      filter: blur(42px);
+      pointer-events: none;
     }
 
     a {
@@ -72,7 +79,7 @@
     }
 
     .shell {
-      width: min(1180px, calc(100% - 40px));
+      width: min(1160px, calc(100% - 40px));
       margin: 0 auto;
     }
 
@@ -80,23 +87,39 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.72);
-      background: rgba(248, 251, 255, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.78);
+      background:
+        radial-gradient(circle at 12% -30%, rgba(34, 211, 238, 0.38), transparent 38%),
+        radial-gradient(circle at 62% -45%, rgba(59, 130, 246, 0.34), transparent 36%),
+        radial-gradient(circle at 98% 28%, rgba(236, 72, 153, 0.24), transparent 34%),
+        linear-gradient(110deg, rgba(255, 255, 255, 0.88), rgba(239, 250, 255, 0.86) 38%, rgba(246, 241, 255, 0.84) 70%, rgba(255, 245, 251, 0.88));
       backdrop-filter: blur(18px);
+    }
+
+    .topbar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.30;
+      background:
+        repeating-linear-gradient(158deg, transparent 0 18px, rgba(14, 165, 233, 0.12) 18px 19px, transparent 19px 38px),
+        repeating-linear-gradient(22deg, transparent 0 28px, rgba(217, 70, 239, 0.08) 28px 29px, transparent 29px 58px);
     }
 
     .topbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 78px;
-      gap: 24px;
+      min-height: 72px;
+      gap: 22px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       min-width: 0;
       text-decoration: none;
     }
@@ -104,27 +127,25 @@
     .brand-mark {
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 16px;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
       background: linear-gradient(135deg, var(--cyan), var(--blue) 48%, var(--pink));
-      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.28);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.22);
       color: white;
       font-weight: 900;
-      letter-spacing: -0.04em;
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.05;
+      line-height: 1.08;
       min-width: 0;
     }
 
     .brand-title {
       font-size: 18px;
       font-weight: 850;
-      letter-spacing: 0.01em;
       background: linear-gradient(90deg, #0891b2, #2563eb 45%, #ec4899);
       -webkit-background-clip: text;
       color: transparent;
@@ -140,14 +161,14 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       color: #475569;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 750;
     }
 
     .nav a {
-      border-radius: 999px;
+      border-radius: 8px;
       padding: 10px 12px;
       text-decoration: none;
       transition: background 160ms ease, color 160ms ease;
@@ -158,21 +179,51 @@
       color: var(--blue);
     }
 
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 8px;
+      padding: 0 18px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 850;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.14);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 38px rgba(124, 58, 237, 0.18);
+    }
+
+    .button.primary {
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--pink));
+      color: white;
+    }
+
+    .button.secondary {
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--blue);
+    }
+
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+      grid-template-columns: minmax(0, 1fr) minmax(350px, 0.78fr);
       align-items: center;
-      gap: 42px;
-      min-height: calc(100vh - 78px);
-      padding: 58px 0 46px;
+      gap: 40px;
+      min-height: calc(100vh - 72px);
+      padding: 50px 0 44px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 22px;
-      border: 1px solid rgba(37, 99, 235, 0.14);
+      margin-bottom: 20px;
+      border: 1px solid rgba(37, 99, 235, 0.16);
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.70);
       padding: 8px 12px;
@@ -187,15 +238,14 @@
       height: 9px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--cyan), var(--pink));
-      box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.10);
     }
 
     h1 {
       margin: 0;
-      max-width: 820px;
+      max-width: 760px;
       color: #111827;
-      font-size: clamp(44px, 7vw, 82px);
-      line-height: 0.95;
+      font-size: clamp(34px, 5.2vw, 58px);
+      line-height: 1.02;
       letter-spacing: 0;
     }
 
@@ -207,11 +257,11 @@
     }
 
     .lead {
-      margin: 24px 0 0;
-      max-width: 730px;
-      color: #475569;
-      font-size: clamp(18px, 2vw, 23px);
-      line-height: 1.5;
+      margin: 22px 0 0;
+      max-width: 720px;
+      color: #4b5563;
+      font-size: clamp(17px, 1.8vw, 21px);
+      line-height: 1.55;
       font-weight: 500;
     }
 
@@ -219,161 +269,136 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 30px;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      border-radius: 16px;
-      padding: 0 20px;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 850;
-      box-shadow: 0 16px 34px rgba(37, 99, 235, 0.16);
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 30px;
+      max-width: 720px;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 44px rgba(124, 58, 237, 0.18);
+    .trust-item {
+      border: 1px solid rgba(255, 255, 255, 0.80);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.66);
+      padding: 13px 14px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
     }
 
-    .button.primary {
-      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--pink));
-      color: white;
+    .trust-item strong {
+      display: block;
+      color: #111827;
+      font-size: 20px;
+      line-height: 1.1;
     }
 
-    .button.secondary {
-      border: 1px solid rgba(37, 99, 235, 0.14);
-      background: rgba(255, 255, 255, 0.75);
-      color: var(--blue);
+    .trust-item span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 700;
     }
 
-    .hero-card {
+    .hero-visual {
       position: relative;
+      isolation: isolate;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.82);
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.84);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(34, 211, 238, 0.18), transparent 28%),
+        radial-gradient(circle at 92% 100%, rgba(236, 72, 153, 0.12), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(239, 250, 255, 0.72) 42%, rgba(250, 245, 255, 0.74));
       box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(16px);
     }
 
-    .hero-card::before {
+    .hero-visual::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(130deg, rgba(34, 211, 238, 0.16), transparent 34%, rgba(236, 72, 153, 0.16)),
-        linear-gradient(35deg, transparent 0 48%, var(--line) 49%, transparent 50%);
-      background-size: auto, 116px 116px;
+      background-image:
+        repeating-linear-gradient(145deg, transparent 0 24px, rgba(14, 165, 233, 0.12) 24px 25px, transparent 25px 50px),
+        repeating-linear-gradient(28deg, transparent 0 34px, rgba(217, 70, 239, 0.08) 34px 35px, transparent 35px 70px);
+      opacity: 0.24;
       pointer-events: none;
     }
 
-    .logo-panel {
+    .logo-stage {
       position: relative;
       display: grid;
       place-items: center;
-      min-height: 218px;
-      padding: 28px;
-      border-bottom: 1px solid rgba(37, 99, 235, 0.10);
-      background: linear-gradient(135deg, rgba(103, 232, 249, 0.28), rgba(255, 255, 255, 0.34), rgba(244, 114, 182, 0.18));
+      padding: 34px 28px 20px;
     }
 
-    .logo-panel img {
-      width: min(100%, 420px);
-      max-height: 150px;
+    .logo-stage img {
+      width: min(78%, 360px);
+      max-height: 255px;
       object-fit: contain;
-      filter: drop-shadow(0 18px 24px rgba(37, 99, 235, 0.16));
+      filter: drop-shadow(0 18px 26px rgba(37, 99, 235, 0.17));
     }
 
-    .dashboard-preview {
+    .product-panel {
       position: relative;
       display: grid;
-      gap: 14px;
-      padding: 24px;
-    }
-
-    .preview-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .metric {
-      border: 1px solid rgba(37, 99, 235, 0.12);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.66);
-      padding: 16px;
-    }
-
-    .metric-label {
-      color: #64748b;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .metric-value {
-      margin-top: 8px;
-      color: #0f172a;
-      font-size: 28px;
-      font-weight: 900;
-    }
-
-    .signal-list {
-      display: grid;
       gap: 10px;
+      padding: 0 26px 26px;
     }
 
-    .signal {
+    .product-row {
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
-      gap: 10px;
-      border: 1px solid rgba(37, 99, 235, 0.10);
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.62);
-      padding: 12px;
+      gap: 12px;
+      border: 1px solid rgba(37, 99, 235, 0.13);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 13px 14px;
     }
 
-    .dot {
+    .module-dot {
       width: 12px;
       height: 12px;
       border-radius: 50%;
       background: var(--blue);
     }
 
-    .dot.pink {
-      background: var(--pink);
-    }
-
-    .dot.cyan {
+    .module-dot.cyan {
       background: var(--cyan);
     }
 
-    .signal strong {
-      display: block;
-      font-size: 13px;
+    .module-dot.pink {
+      background: var(--pink);
     }
 
-    .signal span {
+    .product-row strong {
       display: block;
-      margin-top: 2px;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .product-row span {
+      display: block;
+      margin-top: 3px;
       color: var(--muted);
       font-size: 12px;
       font-weight: 650;
+      line-height: 1.35;
     }
 
-    .pill {
+    .tag {
       border-radius: 999px;
       background: rgba(37, 99, 235, 0.10);
       padding: 5px 9px;
       color: var(--blue);
       font-size: 12px;
       font-weight: 850;
+      white-space: nowrap;
     }
 
     section {
@@ -385,54 +410,76 @@
       margin-bottom: 22px;
     }
 
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 18px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan), var(--pink));
+    }
+
     h2 {
       margin: 0;
       color: #111827;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.05;
+      font-size: clamp(26px, 3.6vw, 40px);
+      line-height: 1.08;
       letter-spacing: 0;
     }
 
     .section-head p {
-      margin: 14px 0 0;
+      margin: 13px 0 0;
       color: var(--muted);
       font-size: 17px;
       line-height: 1.55;
     }
 
-    .grid {
+    .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 14px;
     }
 
     .feature {
-      min-height: 210px;
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      border-radius: 24px;
-      background: var(--card);
-      padding: 22px;
-      box-shadow: 0 16px 46px rgba(15, 23, 42, 0.08);
+      min-height: 190px;
+      border: 1px solid rgba(255, 255, 255, 0.80);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(34, 211, 238, 0.14), transparent 28%),
+        radial-gradient(circle at 92% 100%, rgba(236, 72, 153, 0.10), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(239, 250, 255, 0.70) 42%, rgba(250, 245, 255, 0.72));
+      padding: 20px;
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
       backdrop-filter: blur(16px);
     }
 
     .icon {
-      display: grid;
+      display: inline-grid;
       place-items: center;
-      width: 42px;
-      height: 42px;
-      margin-bottom: 18px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.16), rgba(37, 99, 235, 0.18), rgba(236, 72, 153, 0.16));
+      min-width: 42px;
+      height: 34px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.18), rgba(37, 99, 235, 0.18), rgba(236, 72, 153, 0.18));
       color: var(--blue);
-      font-size: 20px;
+      padding: 0 10px;
+      font-size: 13px;
       font-weight: 900;
     }
 
     .feature h3 {
       margin: 0;
-      font-size: 18px;
-      line-height: 1.25;
+      font-size: 17px;
+      line-height: 1.26;
     }
 
     .feature p {
@@ -442,20 +489,215 @@
       line-height: 1.55;
     }
 
-    .strip {
+    .showcase {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .showcase-panel {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(34, 211, 238, 0.14), transparent 30%),
+        radial-gradient(circle at 92% 100%, rgba(236, 72, 153, 0.10), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(239, 250, 255, 0.76) 42%, rgba(250, 245, 255, 0.78));
+      padding: 24px;
+      box-shadow: 0 18px 52px rgba(15, 23, 42, 0.09);
+      backdrop-filter: blur(16px);
+    }
+
+    .showcase-panel h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .showcase-panel p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .flow-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 13px;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue), var(--pink));
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .flow-step strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .flow-step span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .stakeholder {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.80);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(34, 211, 238, 0.13), transparent 28%),
+        radial-gradient(circle at 92% 100%, rgba(236, 72, 153, 0.10), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.80), rgba(239, 250, 255, 0.72) 42%, rgba(250, 245, 255, 0.74));
+      padding: 22px;
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.07);
+    }
+
+    .stakeholder h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .stakeholder ul {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .stakeholder li {
+      position: relative;
+      padding-left: 20px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .stakeholder li::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
+    }
+
+    .value-band {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(34, 211, 238, 0.20), transparent 30%),
+        radial-gradient(circle at 92% 100%, rgba(236, 72, 153, 0.14), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(239, 250, 255, 0.72) 42%, rgba(250, 245, 255, 0.74));
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .value-copy {
+      padding: 8px 4px;
+    }
+
+    .value-copy h2 {
+      max-width: 620px;
+    }
+
+    .value-copy p {
+      margin: 14px 0 0;
+      color: var(--soft-ink);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .value-points {
+      display: grid;
+      gap: 10px;
+      align-content: center;
+    }
+
+    .value-point {
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+      padding: 14px 15px;
+    }
+
+    .value-point strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .value-point span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .cta {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 24px;
-      margin: 30px 0 62px;
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.72);
-      padding: 26px;
+      margin: 18px 0 58px;
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(34, 211, 238, 0.16), transparent 30%),
+        radial-gradient(circle at 92% 100%, rgba(236, 72, 153, 0.12), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(239, 250, 255, 0.74) 42%, rgba(250, 245, 255, 0.76));
+      padding: 24px;
       box-shadow: var(--shadow);
     }
 
-    .strip p {
+    .cta p {
       margin: 8px 0 0;
       color: var(--muted);
       font-size: 16px;
@@ -468,7 +710,7 @@
       color: #64748b;
       font-size: 14px;
       font-weight: 650;
-      background: rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.38);
       backdrop-filter: blur(14px);
     }
 
@@ -479,37 +721,41 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .nav {
         display: none;
       }
 
-      .hero {
+      .hero,
+      .showcase,
+      .value-band,
+      .cta {
         grid-template-columns: 1fr;
-        min-height: auto;
-        padding-top: 44px;
       }
 
-      .hero-card {
+      .hero {
+        min-height: auto;
+        padding-top: 36px;
+      }
+
+      .hero-visual {
         order: -1;
       }
 
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .strip {
+      .feature-grid,
+      .stakeholder-grid,
+      .trust-row {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 560px) {
       .shell {
-        width: min(100% - 24px, 1180px);
+        width: min(100% - 24px, 1160px);
       }
 
       .topbar-inner {
-        min-height: 68px;
+        min-height: 66px;
       }
 
       .brand-subtitle {
@@ -517,8 +763,8 @@
       }
 
       .hero {
-        gap: 26px;
-        padding: 30px 0 34px;
+        gap: 24px;
+        padding: 28px 0 30px;
       }
 
       .actions {
@@ -529,13 +775,25 @@
         width: 100%;
       }
 
-      .preview-row {
-        grid-template-columns: 1fr;
+      .logo-stage {
+        padding: 26px 18px 12px;
       }
 
-      .logo-panel {
-        min-height: 170px;
-        padding: 20px;
+      .logo-stage img {
+        width: min(88%, 320px);
+      }
+
+      .product-panel {
+        padding: 0 16px 18px;
+      }
+
+      .product-row {
+        grid-template-columns: auto 1fr;
+      }
+
+      .product-row .tag {
+        grid-column: 2;
+        width: fit-content;
       }
     }
   </style>
@@ -552,6 +810,7 @@
       </a>
       <nav class="nav" aria-label="Huvudnavigation">
         <a href="#funktioner">Funktioner</a>
+        <a href="#arbetsflode">Arbetsflöde</a>
         <a href="#skola">För skolan</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -561,49 +820,59 @@
   <main id="top">
     <div class="shell hero">
       <div>
-        <div class="eyebrow"><span></span>Lanseras för svensk skola</div>
-        <h1><span class="gradient-text">Gradient EDU</span> samlar bedömning, progression och pedagogisk analys.</h1>
+        <div class="eyebrow"><span></span>Digital bedömning, analys och uppföljning för svensk skola</div>
+        <h1><span class="gradient-text">Gradient EDU</span> gör elevprogression synlig, spårbar och användbar.</h1>
         <p class="lead">
-          En digital plattform för lärare och skolledning som gör formativa och summativa bedömningar tydliga, spårbara och användbara i det dagliga pedagogiska arbetet.
+          En pedagogisk intelligensplattform som samlar bedömningar, kriterier, resultat, riskindikatorer, åtgärdsplaner och rapporter i ett sammanhållet arbetsflöde för lärare och skolledning.
         </p>
         <div class="actions">
-          <a class="button primary" href="#kontakt">Anmäl intresse</a>
-          <a class="button secondary" href="#funktioner">Se funktioner</a>
+          <a class="button primary" href="#kontakt">Boka dialog</a>
+          <a class="button secondary" href="#funktioner">Se hela funktionsbilden</a>
+        </div>
+        <div class="trust-row" aria-label="Produktens kärnvärden">
+          <div class="trust-item">
+            <strong>Åk 6-9</strong>
+            <span>Långsiktig progression mellan årskurser</span>
+          </div>
+          <div class="trust-item">
+            <strong>Evidence-first</strong>
+            <span>AI och feedback kopplas till underlag</span>
+          </div>
+          <div class="trust-item">
+            <strong>Live-insikt</strong>
+            <span>Risk, stödbehov och kvalitet i realtid</span>
+          </div>
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="Produktförhandsvisning">
-        <div class="logo-panel">
-          <img src="https://base44.app/api/apps/6a098d3311fe400094a3da7e/files/mp/public/6a098d3311fe400094a3da7e/529b3d5eb_GRADIENT_LOGO.png" alt="Gradient EDU logotyp">
+      <aside class="hero-visual" aria-label="Gradient EDU produktöversikt">
+        <div class="logo-stage">
+          <img src="assets/gradient-edu-logo.png" alt="Gradient EDU logotyp">
         </div>
-        <div class="dashboard-preview">
-          <div class="preview-row">
-            <div class="metric">
-              <div class="metric-label">Elevprogression</div>
-              <div class="metric-value">Åk 6-9</div>
+        <div class="product-panel">
+          <div class="product-row">
+            <span class="module-dot cyan"></span>
+            <div>
+              <strong>Bedömningsunderlag och kriterier</strong>
+              <span>Formativa och summativa resultat med förmågor, uppgifter och kommentarer.</span>
             </div>
-            <div class="metric">
-              <div class="metric-label">Riskindikatorer</div>
-              <div class="metric-value">Live</div>
-            </div>
+            <span class="tag">Kärna</span>
           </div>
-          <div class="signal-list">
-            <div class="signal">
-              <span class="dot cyan"></span>
-              <div>
-                <strong>Evidence coverage</strong>
-                <span>Vilka förmågor behöver mer underlag?</span>
-              </div>
-              <span class="pill">Plan</span>
+          <div class="product-row">
+            <span class="module-dot"></span>
+            <div>
+              <strong>Analys, trend och riskmodell</strong>
+              <span>Identifierar sjunkande prestationer, frånvaro, missing evidence och stödbehov.</span>
             </div>
-            <div class="signal">
-              <span class="dot pink"></span>
-              <div>
-                <strong>Åtgärdsplaner</strong>
-                <span>Från risk till ansvarig lärare, deadline och uppföljning.</span>
-              </div>
-              <span class="pill">ÅP</span>
+            <span class="tag">Live</span>
+          </div>
+          <div class="product-row">
+            <span class="module-dot pink"></span>
+            <div>
+              <strong>Rapporter och åtgärdsplaner</strong>
+              <span>Från elevprofil till pedagogisk rapport, ansvarig lärare och uppföljning.</span>
             </div>
+            <span class="tag">PDF</span>
           </div>
         </div>
       </aside>
@@ -612,65 +881,223 @@
     <section id="funktioner">
       <div class="shell">
         <div class="section-head">
-          <h2>Byggd för lärarens verkliga arbetsflöde.</h2>
-          <p>Gradient EDU kopplar ihop underlag, resultat, kriterier, slutbetyg, rapporter och uppföljning i samma pedagogiska arbetsyta.</p>
+          <div class="section-kicker">Komplett funktionsbild</div>
+          <h2>Allt från lärarens dagliga bedömning till skolans systematiska kvalitetsarbete.</h2>
+          <p>Gradient EDU är byggt som en sammanhängande arbetsyta, inte som separata lösryckta dokument. Varje resultat kan kopplas till elev, klass, ämne, förmåga, uppgift, trend och nästa pedagogiska steg.</p>
         </div>
-        <div class="grid">
+
+        <div class="feature-grid">
           <article class="feature">
-            <div class="icon">+</div>
+            <div class="icon">01</div>
             <h3>Formativ och summativ bedömning</h3>
-            <p>Lärare kan välja befintliga kriterier, lägga till egna kriterier och markera vad eleven har visat med tydliga + och -.</p>
+            <p>Lärare kan välja befintliga kriterier, lägga till egna kriterier och markera vad eleven har visat med tydliga plus och minus.</p>
           </article>
           <article class="feature">
-            <div class="icon">AI</div>
-            <h3>AI med evidence-first princip</h3>
-            <p>AI-feedback baseras på listade källor och ska inte dra slutsatser om förmågor där bedömningsunderlag saknas.</p>
+            <div class="icon">02</div>
+            <h3>Bedömningsmatris och förmågor</h3>
+            <p>Samlar resultat per förmåga, klass och ämne så att läraren ser var underlaget är starkt och var det saknas evidens.</p>
           </article>
           <article class="feature">
-            <div class="icon">360</div>
+            <div class="icon">03</div>
+            <h3>AI report quality control</h3>
+            <p>AI-feedback ska baseras på listade källor och varna när det finns för lite underlag för en viss förmåga.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">04</div>
             <h3>Elev 360</h3>
-            <p>Samlar aktuell risk, senaste resultat, trend, missing evidence, summativ status, åtgärdsplaner och kommunikation.</p>
+            <p>En kompakt elevprofil med risk, senaste resultat, trend, missing evidence, summativ status, action plans och kommunikation.</p>
           </article>
           <article class="feature">
-            <div class="icon">ÅP</div>
-            <h3>Intervention och åtgärdsplan</h3>
-            <p>Risker och nedåtgående trender kan omvandlas till konkret ansvar, deadline, status och resultat efter insats.</p>
+            <div class="icon">05</div>
+            <h3>Smart riskmodell</h3>
+            <p>Kombinerar prestation, frånvaro, F/E-resultat, sjunkande trend och saknat underlag för att hitta elever som behöver stöd.</p>
           </article>
           <article class="feature">
-            <div class="icon">PDF</div>
+            <div class="icon">06</div>
+            <h3>Intervention och åtgärdsplaner</h3>
+            <p>Risker och trender kan bli konkreta åtgärder med ansvarig lärare, deadline, status och uppföljt resultat.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">07</div>
+            <h3>Evidence Coverage Planner</h3>
+            <p>Visar vilka förmågor och klasser som har svagt underlag och föreslår nästa bedömning utifrån faktisk evidens.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">08</div>
+            <h3>Guardian Communication Hub</h3>
+            <p>Utkast, skickad kommunikation, språk, ton, elev, ämne, bedömning och historik samlas på ett ställe.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">09</div>
             <h3>Pedagogiska rapporter</h3>
-            <p>Fullständiga rapporter för enskild elev eller klass med bedömningar, kommentarer, förmågor, snittbetyg och slutbetyg.</p>
+            <p>Fullständiga rapporter för elev eller klass med resultat, uppgiftsnamn, kommentarer, snittbetyg, slutbetyg och trend.</p>
           </article>
           <article class="feature">
-            <div class="icon">SK</div>
-            <h3>Skolledning och kvalitet</h3>
-            <p>Ger bättre överblick över progression, risker, stödbehov och bedömningsunderlag på klass- och skolnivå.</p>
+            <div class="icon">10</div>
+            <h3>Smart Bulk Actions</h3>
+            <p>Masshantering för bedömningar, frånvaro, lärarkommentarer, slutbetyg och lösta alerts sparar tid i vardagen.</p>
           </article>
+          <article class="feature">
+            <div class="icon">11</div>
+            <h3>Import och export</h3>
+            <p>CSV/Excel-flöde med förhandsgranskning, kolumnmappning och validering av dubbletter, tomma namn och fel klass.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">12</div>
+            <h3>Dashboard och klass-heatmap</h3>
+            <p>Kompakt översikt över kalender, betygsdistribution, stödbehov, progression, klassmönster och ämnesnivå.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="arbetsflode">
+      <div class="shell">
+        <div class="showcase">
+          <div class="showcase-panel">
+            <div class="section-kicker">Pedagogiskt flöde</div>
+            <h3>Från observation till beslut, inte bara från prov till betyg.</h3>
+            <p>
+              Plattformen hjälper läraren att se vad eleven faktiskt har visat, vad som saknas och vilken nästa insats som är pedagogiskt rimlig.
+            </p>
+            <div class="flow-list">
+              <div class="flow-step">
+                <span class="step-number">1</span>
+                <div>
+                  <strong>Samla underlag</strong>
+                  <span>Bedömningar, kriterier, uppgifter, frånvaro och kommentarer kopplas till rätt elev och förmåga.</span>
+                </div>
+              </div>
+              <div class="flow-step">
+                <span class="step-number">2</span>
+                <div>
+                  <strong>Analysera progression</strong>
+                  <span>Trend, snitt, risk och missing evidence gör det tydligt var undervisningen behöver justeras.</span>
+                </div>
+              </div>
+              <div class="flow-step">
+                <span class="step-number">3</span>
+                <div>
+                  <strong>Följ upp åtgärder</strong>
+                  <span>Stödinsatser får ansvarig person, deadline, status och dokumenterad effekt efter insatsen.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-panel">
+            <div class="section-kicker">Unik position</div>
+            <h3>En bro mellan lärarens dokumentation och skolledningens kvalitetsansvar.</h3>
+            <p>
+              Gradient EDU gör det möjligt att arbeta datainformerat utan att tappa den pedagogiska kärnan. Systemet visar inte bara siffror, utan kopplar dem till elevens förmågor, underlag, undervisning och stöd.
+            </p>
+            <div class="flow-list">
+              <div class="flow-step">
+                <span class="step-number">A</span>
+                <div>
+                  <strong>Spårbarhet</strong>
+                  <span>Varje rapport och AI-sammanfattning kan kopplas till vilka källor och resultat den bygger på.</span>
+                </div>
+              </div>
+              <div class="flow-step">
+                <span class="step-number">B</span>
+                <div>
+                  <strong>Likvärdighet</strong>
+                  <span>Kriterier, förmågor och underlag blir tydligare mellan klasser, ämnen och lärare.</span>
+                </div>
+              </div>
+              <div class="flow-step">
+                <span class="step-number">C</span>
+                <div>
+                  <strong>Tidig upptäckt</strong>
+                  <span>Riskindikatorer och evidence gaps synliggör behov innan problemen bara syns i slutbetyget.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="skola">
       <div class="shell">
-        <div class="strip">
-          <div>
-            <h2>För grundskola idag, relevant även för gymnasiet.</h2>
+        <div class="section-head">
+          <div class="section-kicker">Värde för hela organisationen</div>
+          <h2>En produkt för lärare, rektor och huvudman.</h2>
+          <p>När samma system kan stödja bedömning, uppföljning och kvalitetsarbete minskar dubbelarbete och skolans pedagogiska bild blir tydligare.</p>
+        </div>
+
+        <div class="stakeholder-grid">
+          <article class="stakeholder">
+            <h3>För lärare</h3>
+            <ul>
+              <li>Snabbare dokumentation av resultat, kriterier och kommentarer.</li>
+              <li>Tydlig överblick över elever som behöver stöd.</li>
+              <li>Pedagogiska rapporter utan manuell sammanställning.</li>
+              <li>AI-stöd som utgår från befintligt bedömningsunderlag.</li>
+            </ul>
+          </article>
+          <article class="stakeholder">
+            <h3>För rektor</h3>
+            <ul>
+              <li>Realtidsbild av progression, risker och stödbehov.</li>
+              <li>Bättre underlag för pedagogiskt ledarskap och uppföljning.</li>
+              <li>Synlighet kring likvärdig bedömning och underlag.</li>
+              <li>Mer systematik i arbetet från åk 6 till åk 9.</li>
+            </ul>
+          </article>
+          <article class="stakeholder">
+            <h3>För huvudman</h3>
+            <ul>
+              <li>Samlad analys på skol- och ämnesnivå.</li>
+              <li>Tidiga signaler kring risk, frånvaro och kunskapsutveckling.</li>
+              <li>Stöd för systematiskt kvalitetsarbete.</li>
+              <li>Potential att minska administrativa glapp mellan system.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="value-band">
+          <div class="value-copy">
+            <div class="section-kicker">Varför Gradient EDU</div>
+            <h2>Mer än ett betygssystem: en pedagogisk beslutsmotor.</h2>
             <p>
-              Plattformen är utformad för att stödja lärares dokumentation, analys och uppföljning från åk 6 till åk 9, med långsiktig progression och tydligare beslutsunderlag för undervisning och stödinsatser.
+              Plattformen är utformad för att hjälpa skolan förstå varför en elev riskerar att halka efter, vilka förmågor som saknar underlag och vilken insats som bör följas upp.
             </p>
           </div>
-          <a class="button primary" href="mailto:info@gradientedu.se?subject=Intresse%20f%C3%B6r%20Gradient%20EDU">Kontakta oss</a>
+          <div class="value-points">
+            <div class="value-point">
+              <strong>Evidence före slutsats</strong>
+              <span>Rapporter och AI-feedback ska visa underlag och undvika slutsatser där evidens saknas.</span>
+            </div>
+            <div class="value-point">
+              <strong>Progression över tid</strong>
+              <span>Elever kan följas mellan årskurser, ämnen och bedömningstillfällen.</span>
+            </div>
+            <div class="value-point">
+              <strong>Från analys till handling</strong>
+              <span>Risker blir åtgärdsplaner med ansvar, deadline och uppföljd effekt.</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="kontakt">
       <div class="shell">
-        <div class="section-head">
-          <h2>gradientedu.se är på väg.</h2>
-          <p>
-            Den här sidan är en tillfällig startsida medan Gradient EDU förbereds för extern presentation, dialog med skolor och kommande driftmiljö.
-          </p>
+        <div class="cta">
+          <div>
+            <div class="section-kicker">Presentation och dialog</div>
+            <h2>Gradient EDU är redo för nästa samtal med skolor och kommuner.</h2>
+            <p>
+              Sidan är en extern startsida för presentation av produkten, dialog med skolledning och kommande driftsättning.
+            </p>
+          </div>
+          <a class="button primary" href="mailto:juri.asgart@icloud.com?subject=Intresse%20f%C3%B6r%20Gradient%20EDU">Kontakta Juri Asgart</a>
         </div>
       </div>
     </section>
