@@ -243,13 +243,6 @@
       font-weight: 500;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
     .trust-row {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -428,15 +421,15 @@
     }
 
     .feature {
-      min-height: 190px;
-      border: 1px solid rgba(255, 255, 255, 0.80);
+      min-height: 172px;
+      border: 1px solid rgba(255, 255, 255, 0.62);
       border-radius: 8px;
       background:
-        radial-gradient(circle at 8% 0%, rgba(34, 211, 238, 0.14), transparent 28%),
-        radial-gradient(circle at 92% 100%, rgba(236, 72, 153, 0.10), transparent 34%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(239, 250, 255, 0.70) 42%, rgba(250, 245, 255, 0.72));
-      padding: 20px;
-      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+        radial-gradient(circle at 10% 0%, rgba(34, 211, 238, 0.10), transparent 32%),
+        radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.08), transparent 36%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(239, 250, 255, 0.52) 42%, rgba(250, 245, 255, 0.56));
+      padding: 18px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.055);
       backdrop-filter: blur(16px);
     }
 
@@ -444,18 +437,16 @@
       position: relative;
       display: inline-grid;
       place-items: center;
-      width: 48px;
-      height: 48px;
-      margin-bottom: 16px;
-      border-radius: 50%;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
-        url("assets/gradient-edu-badge.png") center / cover no-repeat;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue) 52%, var(--pink));
       color: white;
       font-size: 11px;
       font-weight: 900;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.70);
-      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.18);
+      letter-spacing: 0;
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.16);
       overflow: hidden;
     }
 
@@ -464,7 +455,9 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.34);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.30), transparent 42%),
+        repeating-linear-gradient(145deg, transparent 0 10px, rgba(255, 255, 255, 0.18) 10px 11px, transparent 11px 20px);
       pointer-events: none;
     }
 
@@ -524,12 +517,14 @@
 
     .flow-step {
       display: grid;
-      grid-template-columns: 34px 1fr;
+      grid-template-columns: 36px 1fr;
       gap: 12px;
       align-items: start;
-      border: 1px solid rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.68);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.62);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(34, 211, 238, 0.08), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.48));
       padding: 13px;
     }
 
@@ -537,17 +532,14 @@
       position: relative;
       display: grid;
       place-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
-        url("assets/gradient-edu-badge.png") center / cover no-repeat;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue) 54%, var(--pink));
       color: white;
       font-size: 12px;
       font-weight: 900;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.72);
-      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.18);
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.14);
       overflow: hidden;
     }
 
@@ -556,7 +548,9 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.34);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.30), transparent 44%),
+        repeating-linear-gradient(145deg, transparent 0 10px, rgba(255, 255, 255, 0.18) 10px 11px, transparent 11px 20px);
       pointer-events: none;
     }
 
@@ -779,10 +773,6 @@
         padding: 28px 0 30px;
       }
 
-      .actions {
-        flex-direction: column;
-      }
-
       .button {
         width: 100%;
       }
@@ -834,10 +824,6 @@
         <p class="lead">
           En pedagogisk intelligensplattform som samlar bedömningar, kriterier, resultat, riskindikatorer, åtgärdsplaner och rapporter i ett sammanhållet arbetsflöde för lärare och skolledning.
         </p>
-        <div class="actions">
-          <a class="button primary" href="#kontakt">Boka dialog</a>
-          <a class="button secondary" href="#funktioner">Se hela funktionsbilden</a>
-        </div>
         <div class="trust-row" aria-label="Produktens kärnvärden">
           <div class="trust-item">
             <strong>Åk 6-9</strong>
@@ -1106,7 +1092,7 @@
               Sidan är en extern startsida för presentation av produkten, dialog med skolledning och kommande driftsättning.
             </p>
           </div>
-          <a class="button primary" href="mailto:juri.asgart@icloud.com?subject=Intresse%20f%C3%B6r%20Gradient%20EDU">Kontakta Juri Asgart</a>
+          <a class="button primary" href="mailto:juri.asgart@icloud.com?subject=Intresse%20f%C3%B6r%20Gradient%20EDU">Boka dialog</a>
         </div>
       </div>
     </section>
