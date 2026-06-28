@@ -528,11 +528,6 @@
       pointer-events: none;
     }
 
-    .screen-stack {
-      display: grid;
-      gap: 18px;
-    }
-
     .screen-wide {
       grid-column: 1 / -1;
     }
@@ -1685,110 +1680,108 @@
             </div>
           </article>
 
-          <div class="screen-stack">
-            <article class="screen-card">
-              <div class="screen-top">
-                <span class="screen-title">Riskelever, varningar och ÅP</span>
-                <span class="screen-badge">Uppföljning</span>
-              </div>
-              <div class="risk-list" aria-label="Exempel på riskelever och åtgärdsplaner">
-                <div class="risk-row">
-                  <div>
-                    <strong>Elev A · Matematik</strong>
-                    <span>F-varning, saknat underlag och sjunkande trend.</span>
-                  </div>
-                  <span class="risk-level high">Hög risk</span>
-                </div>
-                <div class="risk-row">
-                  <div>
-                    <strong>Elev B · Engelska</strong>
-                    <span>ÅP öppen, ansvarig lärare och uppföljning bokad.</span>
-                  </div>
-                  <span class="risk-level medium">ÅP aktiv</span>
-                </div>
-                <div class="risk-row">
-                  <div>
-                    <strong>Elev C · SO</strong>
-                    <span>Frånvaro och flera missade bedömningstillfällen.</span>
-                  </div>
-                  <span class="risk-level medium">Varning</span>
-                </div>
-              </div>
-              <div class="plan-strip" aria-label="Exempel på åtgärdsplansstatus">
+          <article class="screen-card">
+            <div class="screen-top">
+              <span class="screen-title">Riskelever, varningar och ÅP</span>
+              <span class="screen-badge">Uppföljning</span>
+            </div>
+            <div class="risk-list" aria-label="Exempel på riskelever och åtgärdsplaner">
+              <div class="risk-row">
                 <div>
-                  <span>Öppna ÅP</span>
-                  <strong>18</strong>
+                  <strong>Elev A · Matematik</strong>
+                  <span>F-varning, saknat underlag och sjunkande trend.</span>
                 </div>
-                <div>
-                  <span>Förfallna</span>
-                  <strong>3</strong>
-                </div>
-                <div>
-                  <span>Uppföljda</span>
-                  <strong>42</strong>
-                </div>
+                <span class="risk-level high">Hög risk</span>
               </div>
-            </article>
+              <div class="risk-row">
+                <div>
+                  <strong>Elev B · Engelska</strong>
+                  <span>ÅP öppen, ansvarig lärare och uppföljning bokad.</span>
+                </div>
+                <span class="risk-level medium">ÅP aktiv</span>
+              </div>
+              <div class="risk-row">
+                <div>
+                  <strong>Elev C · SO</strong>
+                  <span>Frånvaro och flera missade bedömningstillfällen.</span>
+                </div>
+                <span class="risk-level medium">Varning</span>
+              </div>
+            </div>
+            <div class="plan-strip" aria-label="Exempel på åtgärdsplansstatus">
+              <div>
+                <span>Öppna ÅP</span>
+                <strong>18</strong>
+              </div>
+              <div>
+                <span>Förfallna</span>
+                <strong>3</strong>
+              </div>
+              <div>
+                <span>Uppföljda</span>
+                <strong>42</strong>
+              </div>
+            </div>
+          </article>
 
-            <article class="screen-card">
-              <div class="screen-top">
-                <span class="screen-title">Elev 360 och rapport</span>
-                <span class="screen-badge">Från signal till handling</span>
-              </div>
-              <div class="student-panel">
-                <div class="student-summary">
-                  <strong>Elevprofil · syntetiskt exempel</strong>
-                  <span>En elev med flera bedömningar, skiftande resultat och tydlig uppföljning i samma vy.</span>
-                  <div class="status-list">
-                    <div><span>Risk</span><strong>Medium</strong></div>
-                    <div><span>Trend</span><strong>Stabil</strong></div>
-                    <div><span>Uppföljning</span><strong>14 dagar</strong></div>
-                  </div>
-                </div>
-                <div class="report-summary">
-                  <strong>Pedagogisk rapport</strong>
-                  <span>Rapporten visar källor, bedömningar, snitt, slutbetyg, kommentarer och planerade insatser.</span>
-                  <div class="status-list">
-                    <div><span>Export</span><strong>PDF</strong></div>
-                    <div><span>Källor</span><strong>Spårbara</strong></div>
-                    <div><span>Beslut</span><strong>Lärare</strong></div>
-                  </div>
+          <article class="screen-card">
+            <div class="screen-top">
+              <span class="screen-title">Elev 360 och rapport</span>
+              <span class="screen-badge">Från signal till handling</span>
+            </div>
+            <div class="student-panel">
+              <div class="student-summary">
+                <strong>Elevprofil · syntetiskt exempel</strong>
+                <span>En elev med flera bedömningar, skiftande resultat och tydlig uppföljning i samma vy.</span>
+                <div class="status-list">
+                  <div><span>Risk</span><strong>Medium</strong></div>
+                  <div><span>Trend</span><strong>Stabil</strong></div>
+                  <div><span>Uppföljning</span><strong>14 dagar</strong></div>
                 </div>
               </div>
-              <div class="report-excerpt" aria-label="Syntetiskt exempel på rapporttext">
-                <h4>Utdrag ur pedagogisk rapport · Elev B</h4>
-                <p>Sammanställningen bygger på fyra bedömningar under terminen och visar både starka skriftliga resultat och ett behov av fortsatt muntlig uppföljning.</p>
-                <div class="assessment-trail" aria-label="Syntetiska bedömningar för samma elev">
-                  <div class="assessment-line">
-                    <span>Läsförståelse · prov Future Cities · 17/20p</span>
-                    <strong>A</strong>
-                  </div>
-                  <div class="assessment-line">
-                    <span>Skriftlig uppgift · My Future · 15/20p</span>
-                    <strong>C</strong>
-                  </div>
-                  <div class="assessment-line">
-                    <span>Muntlig presentation · 6/10p</span>
-                    <strong>D</strong>
-                  </div>
-                  <div class="assessment-line">
-                    <span>Grammatiktest · 14/20p</span>
-                    <strong>C</strong>
-                  </div>
-                </div>
-                <div class="report-note">
-                  <div>
-                    <strong>Lärarkommentar</strong>
-                    <span>Eleven visar god förståelse i läsning och kan utveckla resonemang skriftligt. Muntlig produktion behöver tränas i mindre steg med tydliga stödfraser och återkoppling.</span>
-                  </div>
-                  <div>
-                    <strong>Nästa steg</strong>
-                    <span>Planera en kort muntlig uppföljning inom två veckor och koppla resultatet till samma förmåga i matrisen innan slutlig sammanvägning.</span>
-                  </div>
+              <div class="report-summary">
+                <strong>Pedagogisk rapport</strong>
+                <span>Rapporten visar källor, bedömningar, snitt, slutbetyg, kommentarer och planerade insatser.</span>
+                <div class="status-list">
+                  <div><span>Export</span><strong>PDF</strong></div>
+                  <div><span>Källor</span><strong>Spårbara</strong></div>
+                  <div><span>Beslut</span><strong>Lärare</strong></div>
                 </div>
               </div>
-            </article>
-          </div>
+            </div>
+            <div class="report-excerpt" aria-label="Syntetiskt exempel på rapporttext">
+              <h4>Utdrag ur pedagogisk rapport · Elev B</h4>
+              <p>Sammanställningen bygger på fyra bedömningar under terminen och visar både starka skriftliga resultat och ett behov av fortsatt muntlig uppföljning.</p>
+              <div class="assessment-trail" aria-label="Syntetiska bedömningar för samma elev">
+                <div class="assessment-line">
+                  <span>Läsförståelse · prov Future Cities · 17/20p</span>
+                  <strong>A</strong>
+                </div>
+                <div class="assessment-line">
+                  <span>Skriftlig uppgift · My Future · 15/20p</span>
+                  <strong>C</strong>
+                </div>
+                <div class="assessment-line">
+                  <span>Muntlig presentation · 6/10p</span>
+                  <strong>D</strong>
+                </div>
+                <div class="assessment-line">
+                  <span>Grammatiktest · 14/20p</span>
+                  <strong>C</strong>
+                </div>
+              </div>
+              <div class="report-note">
+                <div>
+                  <strong>Lärarkommentar</strong>
+                  <span>Eleven visar god förståelse i läsning och kan utveckla resonemang skriftligt. Muntlig produktion behöver tränas i mindre steg med tydliga stödfraser och återkoppling.</span>
+                </div>
+                <div>
+                  <strong>Nästa steg</strong>
+                  <span>Planera en kort muntlig uppföljning inom två veckor och koppla resultatet till samma förmåga i matrisen innan slutlig sammanvägning.</span>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
