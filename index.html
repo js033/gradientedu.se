@@ -638,6 +638,13 @@
       gap: 8px;
     }
 
+    .matrix-coverage-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
     .matrix-row {
       display: grid;
       grid-template-columns: 1.25fr repeat(4, minmax(40px, 0.55fr));
@@ -954,6 +961,129 @@
       font-weight: 950;
     }
 
+    .pilot-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .pilot-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: 8px;
+      background: var(--brand-glass-strong);
+      padding: 24px;
+      box-shadow: 0 18px 52px rgba(15, 23, 42, 0.09);
+      backdrop-filter: blur(18px) saturate(1.08);
+    }
+
+    .pilot-card h3 {
+      margin: 0;
+      color: #111827;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .pilot-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .pilot-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pilot-step {
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 13px;
+    }
+
+    .pilot-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      min-height: 30px;
+      border-radius: 8px;
+      background: rgba(37, 99, 235, 0.10);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .pilot-step strong {
+      display: block;
+      margin-top: 10px;
+      color: #111827;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .pilot-step small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .decision-card {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+    }
+
+    .decision-mark {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.10);
+      padding: 8px 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .trust-checks {
+      display: grid;
+      gap: 9px;
+      margin-top: 4px;
+    }
+
+    .trust-check {
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 12px;
+    }
+
+    .trust-check strong {
+      display: block;
+      color: #111827;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .trust-check span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.42;
+      font-weight: 700;
+    }
+
     .showcase {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -1195,6 +1325,8 @@
 
       .hero,
       .product-showcase,
+      .matrix-coverage-grid,
+      .pilot-grid,
       .showcase,
       .value-band,
       .cta {
@@ -1217,6 +1349,7 @@
       }
 
       .kpi-grid,
+      .pilot-steps,
       .student-panel {
         grid-template-columns: 1fr 1fr;
       }
@@ -1273,6 +1406,7 @@
 
       .kpi-grid,
       .coverage-grid,
+      .pilot-steps,
       .plan-strip,
       .student-panel {
         grid-template-columns: 1fr;
@@ -1303,6 +1437,7 @@
       <nav class="nav" aria-label="Huvudnavigation">
         <a href="#funktioner">Funktioner</a>
         <a href="#produktbilder">Produktbilder</a>
+        <a href="#pilot">Pilot</a>
         <a href="#arbetsflode">Arbetsflöde</a>
         <a href="#skola">För skolan</a>
         <a href="#kontakt">Kontakt</a>
@@ -1488,12 +1623,12 @@
             </div>
           </article>
 
-          <div class="screen-stack">
-            <article class="screen-card">
-              <div class="screen-top">
-                <span class="screen-title">Betygsmatris</span>
-                <span class="screen-badge">Snitt + slutbetyg</span>
-              </div>
+          <article class="screen-card screen-wide">
+            <div class="screen-top">
+              <span class="screen-title">Betygsmatris och evidence coverage</span>
+              <span class="screen-badge">Snitt, slutbetyg och underlag</span>
+            </div>
+            <div class="matrix-coverage-grid">
               <div class="matrix-preview" aria-label="Exempel på betygsmatris">
                 <div class="matrix-row">
                   <div class="matrix-cell">Elev</div>
@@ -1524,13 +1659,7 @@
                   <div class="matrix-cell"><span class="grade-pill risk">E</span></div>
                 </div>
               </div>
-            </article>
 
-            <article class="screen-card">
-              <div class="screen-top">
-                <span class="screen-title">Evidence coverage</span>
-                <span class="screen-badge">Underlag först</span>
-              </div>
               <div class="coverage-grid">
                 <div class="coverage-item">
                   <strong>Läsa <span>D</span></strong>
@@ -1553,8 +1682,8 @@
                   <div class="coverage-line"><i style="width: 91%;"></i></div>
                 </div>
               </div>
-            </article>
-          </div>
+            </div>
+          </article>
 
           <div class="screen-stack">
             <article class="screen-card">
@@ -1728,6 +1857,65 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pilot">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">Pilot och trygghet</div>
+          <h2>En kontrollerad pilot utan att skolan behöver byta system från dag ett.</h2>
+          <p>Gradient EDU kan testas stegvis med syntetiska data, tydliga roller och begränsad omfattning. Målet är att visa faktisk pedagogisk nytta innan större beslut om införande, integrationer eller drift tas.</p>
+        </div>
+
+        <div class="pilot-grid">
+          <article class="pilot-card">
+            <h3>4 veckor från demo till beslutsunderlag.</h3>
+            <p>Piloten fokuserar på konkreta arbetsflöden: bedömning, risk, ÅP, rapport och skolöversikt. Varje vecka har en tydlig avstämning och ett mätbart resultat.</p>
+            <div class="pilot-steps" aria-label="Exempel på pilotupplägg">
+              <div class="pilot-step">
+                <span>V1</span>
+                <strong>Avgränsa</strong>
+                <small>Välj ämne, klass, roller och vilka syntetiska eller redigerade data som får användas.</small>
+              </div>
+              <div class="pilot-step">
+                <span>V2</span>
+                <strong>Lärarflöde</strong>
+                <small>Testa bedömning, matris, kommentarer, riskflaggor och uppföljning i vardagsnära scenarier.</small>
+              </div>
+              <div class="pilot-step">
+                <span>V3</span>
+                <strong>Skolledning</strong>
+                <small>Granska skolöversikt, stödbehov, öppna insatser, rapportexport och kvalitetssignaler.</small>
+              </div>
+              <div class="pilot-step">
+                <span>V4</span>
+                <strong>Beslut</strong>
+                <small>Sammanfatta nytta, risker, dataskydd, integrationer och nästa möjliga steg.</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="pilot-card decision-card">
+            <div class="decision-mark">Läraren fattar beslut</div>
+            <h3>Systemet sammanställer underlag, men ersätter inte professionellt omdöme.</h3>
+            <p>Gradient EDU ska stödja läraren och skolledningen med struktur, spårbarhet och uppföljning. Betyg, stödinsatser och pedagogiska beslut ligger kvar hos ansvarig personal.</p>
+            <div class="trust-checks">
+              <div class="trust-check">
+                <strong>Ingen automatisk betygssättning</strong>
+                <span>Matris, snitt och rapporter är beslutsunderlag. Slutlig bedömning görs av lärare.</span>
+              </div>
+              <div class="trust-check">
+                <strong>Underlag och källor syns</strong>
+                <span>Rapporter ska visa vilka bedömningar och resultat som ligger bakom sammanfattningen.</span>
+              </div>
+              <div class="trust-check">
+                <strong>Trygg pilot först</strong>
+                <span>Demo kan köras med syntetiska data och tydlig avgränsning innan personuppgifter eller integrationer diskuteras.</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
