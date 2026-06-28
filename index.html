@@ -497,6 +497,293 @@
       line-height: 1.55;
     }
 
+    .product-showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .screen-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: 8px;
+      background: var(--brand-glass-strong);
+      padding: 18px;
+      box-shadow: 0 18px 52px rgba(15, 23, 42, 0.09);
+      backdrop-filter: blur(18px) saturate(1.08);
+    }
+
+    .screen-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        repeating-linear-gradient(145deg, transparent 0 28px, rgba(14, 165, 233, 0.10) 28px 29px, transparent 29px 58px),
+        linear-gradient(116deg, rgba(255, 255, 255, 0.20), transparent 52%, rgba(253, 242, 248, 0.18));
+      opacity: 0.58;
+      pointer-events: none;
+    }
+
+    .screen-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .screen-wide {
+      grid-column: 1 / -1;
+    }
+
+    .screen-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .screen-title {
+      color: #111827;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .screen-badge {
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.10);
+      padding: 5px 9px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .kpi {
+      min-height: 86px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.64);
+      padding: 12px;
+    }
+
+    .kpi span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .kpi strong {
+      display: block;
+      margin-top: 7px;
+      color: #111827;
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .kpi small {
+      display: block;
+      margin-top: 6px;
+      color: #667085;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mini-chart {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      align-items: end;
+      gap: 9px;
+      min-height: 174px;
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.56);
+      padding: 18px 16px 12px;
+    }
+
+    .bar {
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      min-height: 56px;
+      border-radius: 8px 8px 4px 4px;
+      background: linear-gradient(180deg, rgba(6, 182, 212, 0.78), rgba(37, 99, 235, 0.80));
+      color: white;
+      font-size: 11px;
+      font-weight: 900;
+      padding-bottom: 7px;
+      box-shadow: 0 10px 18px rgba(37, 99, 235, 0.14);
+    }
+
+    .bar.pink {
+      background: linear-gradient(180deg, rgba(236, 72, 153, 0.74), rgba(124, 58, 237, 0.78));
+    }
+
+    .matrix-preview {
+      display: grid;
+      gap: 8px;
+    }
+
+    .matrix-row {
+      display: grid;
+      grid-template-columns: 1.25fr repeat(4, minmax(40px, 0.55fr));
+      gap: 7px;
+      align-items: center;
+    }
+
+    .matrix-cell {
+      min-height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .grade-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      min-height: 28px;
+      border-radius: 7px;
+      border: 1px solid rgba(37, 99, 235, 0.20);
+      background: rgba(219, 234, 254, 0.92);
+      color: #1d4ed8;
+      font-weight: 950;
+    }
+
+    .grade-pill.warn {
+      border-color: rgba(245, 158, 11, 0.30);
+      background: rgba(254, 243, 199, 0.88);
+      color: #b45309;
+    }
+
+    .grade-pill.risk {
+      border-color: rgba(244, 63, 94, 0.28);
+      background: rgba(255, 228, 230, 0.88);
+      color: #be123c;
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .coverage-item {
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 11px;
+    }
+
+    .coverage-item strong {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .coverage-item span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .coverage-line {
+      height: 7px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.10);
+      overflow: hidden;
+    }
+
+    .coverage-line i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--pink));
+    }
+
+    .student-panel {
+      display: grid;
+      grid-template-columns: 0.86fr 1fr;
+      gap: 10px;
+    }
+
+    .student-summary,
+    .report-summary {
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 13px;
+    }
+
+    .student-summary strong,
+    .report-summary strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .student-summary span,
+    .report-summary span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .status-list {
+      display: grid;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .status-list div {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      border-radius: 7px;
+      background: rgba(37, 99, 235, 0.08);
+      padding: 7px 8px;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .status-list span,
+    .status-list strong {
+      display: inline;
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
     .showcase {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -737,6 +1024,7 @@
       }
 
       .hero,
+      .product-showcase,
       .showcase,
       .value-band,
       .cta {
@@ -756,6 +1044,11 @@
       .stakeholder-grid,
       .trust-row {
         grid-template-columns: 1fr;
+      }
+
+      .kpi-grid,
+      .student-panel {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
@@ -807,6 +1100,26 @@
         grid-column: 2;
         width: fit-content;
       }
+
+      .kpi-grid,
+      .coverage-grid,
+      .student-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-chart {
+        gap: 6px;
+        padding-inline: 10px;
+      }
+
+      .matrix-row {
+        grid-template-columns: 1.15fr repeat(4, minmax(34px, 0.52fr));
+      }
+
+      .matrix-cell {
+        padding: 7px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
@@ -818,6 +1131,7 @@
       </a>
       <nav class="nav" aria-label="Huvudnavigation">
         <a href="#funktioner">Funktioner</a>
+        <a href="#produktbilder">Produktbilder</a>
         <a href="#arbetsflode">Arbetsflöde</a>
         <a href="#skola">För skolan</a>
         <a href="#kontakt">Kontakt</a>
@@ -951,6 +1265,151 @@
             <div class="icon">12</div>
             <h3>Dashboard och klass-heatmap</h3>
             <p>Kompakt översikt över kalender, betygsdistribution, stödbehov, progression, klassmönster och ämnesnivå.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="produktbilder">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">Produktbilder</div>
+          <h2>Så kan lärare och skolledning läsa läget utan att leta i flera system.</h2>
+          <p>Illustrerade produktvyer visar hur Gradient EDU binder ihop betygsmatris, skolöversikt, evidence coverage, elevprofil och rapportexport. Inga elevuppgifter visas här; exemplen är syntetiska.</p>
+        </div>
+
+        <div class="product-showcase" aria-label="Illustrerade produktvyer">
+          <article class="screen-card screen-wide">
+            <div class="screen-top">
+              <span class="screen-title">Skolöversikt</span>
+              <span class="screen-badge">Aktuella klasser</span>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi">
+                <span>Elever</span>
+                <strong>425</strong>
+                <small>15 klasser</small>
+              </div>
+              <div class="kpi">
+                <span>Resultat</span>
+                <strong>7 041</strong>
+                <small>Skolsnitt D</small>
+              </div>
+              <div class="kpi">
+                <span>Stödbehov</span>
+                <strong>154</strong>
+                <small>F, alerts eller risk</small>
+              </div>
+              <div class="kpi">
+                <span>Insatser</span>
+                <strong>489</strong>
+                <small>Öppna ÅP</small>
+              </div>
+            </div>
+            <div class="mini-chart" aria-label="Exempel på resultattrend">
+              <div class="bar" style="height: 46%;">Åk6</div>
+              <div class="bar" style="height: 58%;">VT</div>
+              <div class="bar pink" style="height: 38%;">HT</div>
+              <div class="bar" style="height: 66%;">Åk7</div>
+              <div class="bar" style="height: 72%;">VT</div>
+              <div class="bar pink" style="height: 51%;">HT</div>
+              <div class="bar" style="height: 78%;">Nu</div>
+            </div>
+          </article>
+
+          <div class="screen-stack">
+            <article class="screen-card">
+              <div class="screen-top">
+                <span class="screen-title">Betygsmatris</span>
+                <span class="screen-badge">Snitt + slutbetyg</span>
+              </div>
+              <div class="matrix-preview" aria-label="Exempel på betygsmatris">
+                <div class="matrix-row">
+                  <div class="matrix-cell">Elev</div>
+                  <div class="matrix-cell">Läsa</div>
+                  <div class="matrix-cell">Höra</div>
+                  <div class="matrix-cell">Skriva</div>
+                  <div class="matrix-cell">Slut</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="matrix-cell">Andervik, A.</div>
+                  <div class="matrix-cell"><span class="grade-pill">A</span></div>
+                  <div class="matrix-cell"><span class="grade-pill">A</span></div>
+                  <div class="matrix-cell"><span class="grade-pill warn">B</span></div>
+                  <div class="matrix-cell"><span class="grade-pill">A</span></div>
+                </div>
+                <div class="matrix-row">
+                  <div class="matrix-cell">Larvold, S.</div>
+                  <div class="matrix-cell"><span class="grade-pill warn">C</span></div>
+                  <div class="matrix-cell"><span class="grade-pill warn">D</span></div>
+                  <div class="matrix-cell"><span class="grade-pill warn">C</span></div>
+                  <div class="matrix-cell"><span class="grade-pill warn">C</span></div>
+                </div>
+                <div class="matrix-row">
+                  <div class="matrix-cell">Clarken, M.</div>
+                  <div class="matrix-cell"><span class="grade-pill risk">E</span></div>
+                  <div class="matrix-cell"><span class="grade-pill risk">F</span></div>
+                  <div class="matrix-cell"><span class="grade-pill warn">D</span></div>
+                  <div class="matrix-cell"><span class="grade-pill risk">E</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="screen-card">
+              <div class="screen-top">
+                <span class="screen-title">Evidence coverage</span>
+                <span class="screen-badge">Underlag först</span>
+              </div>
+              <div class="coverage-grid">
+                <div class="coverage-item">
+                  <strong>Läsa <span>D</span></strong>
+                  <span>3 bedömningar · 72 resultat</span>
+                  <div class="coverage-line"><i style="width: 72%;"></i></div>
+                </div>
+                <div class="coverage-item">
+                  <strong>Höra <span>C</span></strong>
+                  <span>4 bedömningar · 96 resultat</span>
+                  <div class="coverage-line"><i style="width: 84%;"></i></div>
+                </div>
+                <div class="coverage-item">
+                  <strong>Tala <span>D</span></strong>
+                  <span>2 bedömningar · behöver följas upp</span>
+                  <div class="coverage-line"><i style="width: 44%;"></i></div>
+                </div>
+                <div class="coverage-item">
+                  <strong>Skriva <span>C</span></strong>
+                  <span>5 bedömningar · stabilt underlag</span>
+                  <div class="coverage-line"><i style="width: 91%;"></i></div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <article class="screen-card">
+            <div class="screen-top">
+              <span class="screen-title">Elev 360 och rapport</span>
+              <span class="screen-badge">Från signal till handling</span>
+            </div>
+            <div class="student-panel">
+              <div class="student-summary">
+                <strong>Elevprofil</strong>
+                <span>Senaste resultat, trend, frånvaro, saknat underlag och öppna åtgärder samlas i samma vy.</span>
+                <div class="status-list">
+                  <div><span>Risk</span><strong>Medium</strong></div>
+                  <div><span>Trend</span><strong>Stabil</strong></div>
+                  <div><span>Uppföljning</span><strong>14 dagar</strong></div>
+                </div>
+              </div>
+              <div class="report-summary">
+                <strong>Pedagogisk rapport</strong>
+                <span>Rapporten visar källor, bedömningar, snitt, slutbetyg, kommentarer och planerade insatser.</span>
+                <div class="status-list">
+                  <div><span>Export</span><strong>PDF</strong></div>
+                  <div><span>Källor</span><strong>Spårbara</strong></div>
+                  <div><span>Beslut</span><strong>Lärare</strong></div>
+                </div>
+              </div>
+            </div>
           </article>
         </div>
       </div>
