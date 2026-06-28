@@ -784,6 +784,176 @@
       line-height: 1.25;
     }
 
+    .risk-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .risk-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 9px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 10px;
+    }
+
+    .risk-row strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .risk-row span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .risk-level {
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .risk-level.high {
+      background: rgba(255, 228, 230, 0.92);
+      color: #be123c;
+    }
+
+    .risk-level.medium {
+      background: rgba(254, 243, 199, 0.92);
+      color: #b45309;
+    }
+
+    .plan-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .plan-strip div {
+      border-radius: 8px;
+      background: rgba(37, 99, 235, 0.08);
+      padding: 9px;
+    }
+
+    .plan-strip span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .plan-strip strong {
+      display: block;
+      margin-top: 5px;
+      color: #111827;
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    .report-excerpt {
+      margin-top: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+      padding: 12px;
+    }
+
+    .report-excerpt h4 {
+      margin: 0 0 8px;
+      color: #111827;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .report-excerpt p {
+      margin: 0;
+      color: #475569;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .report-note {
+      display: grid;
+      gap: 7px;
+      margin-top: 9px;
+    }
+
+    .report-note div {
+      border-left: 3px solid rgba(37, 99, 235, 0.40);
+      border-radius: 6px;
+      background: rgba(37, 99, 235, 0.07);
+      padding: 8px 9px;
+    }
+
+    .report-note strong {
+      display: block;
+      color: #111827;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .report-note span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .assessment-trail {
+      display: grid;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .assessment-line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.56);
+      padding: 8px 9px;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .assessment-line span {
+      display: block;
+      margin: 0;
+      color: #475569;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .assessment-line strong {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      min-height: 26px;
+      border-radius: 7px;
+      background: rgba(219, 234, 254, 0.92);
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
     .showcase {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -1103,6 +1273,7 @@
 
       .kpi-grid,
       .coverage-grid,
+      .plan-strip,
       .student-panel {
         grid-template-columns: 1fr;
       }
@@ -1385,32 +1556,110 @@
             </article>
           </div>
 
-          <article class="screen-card">
-            <div class="screen-top">
-              <span class="screen-title">Elev 360 och rapport</span>
-              <span class="screen-badge">Från signal till handling</span>
-            </div>
-            <div class="student-panel">
-              <div class="student-summary">
-                <strong>Elevprofil</strong>
-                <span>Senaste resultat, trend, frånvaro, saknat underlag och öppna åtgärder samlas i samma vy.</span>
-                <div class="status-list">
-                  <div><span>Risk</span><strong>Medium</strong></div>
-                  <div><span>Trend</span><strong>Stabil</strong></div>
-                  <div><span>Uppföljning</span><strong>14 dagar</strong></div>
+          <div class="screen-stack">
+            <article class="screen-card">
+              <div class="screen-top">
+                <span class="screen-title">Riskelever, varningar och ÅP</span>
+                <span class="screen-badge">Uppföljning</span>
+              </div>
+              <div class="risk-list" aria-label="Exempel på riskelever och åtgärdsplaner">
+                <div class="risk-row">
+                  <div>
+                    <strong>Elev A · Matematik</strong>
+                    <span>F-varning, saknat underlag och sjunkande trend.</span>
+                  </div>
+                  <span class="risk-level high">Hög risk</span>
+                </div>
+                <div class="risk-row">
+                  <div>
+                    <strong>Elev B · Engelska</strong>
+                    <span>ÅP öppen, ansvarig lärare och uppföljning bokad.</span>
+                  </div>
+                  <span class="risk-level medium">ÅP aktiv</span>
+                </div>
+                <div class="risk-row">
+                  <div>
+                    <strong>Elev C · SO</strong>
+                    <span>Frånvaro och flera missade bedömningstillfällen.</span>
+                  </div>
+                  <span class="risk-level medium">Varning</span>
                 </div>
               </div>
-              <div class="report-summary">
-                <strong>Pedagogisk rapport</strong>
-                <span>Rapporten visar källor, bedömningar, snitt, slutbetyg, kommentarer och planerade insatser.</span>
-                <div class="status-list">
-                  <div><span>Export</span><strong>PDF</strong></div>
-                  <div><span>Källor</span><strong>Spårbara</strong></div>
-                  <div><span>Beslut</span><strong>Lärare</strong></div>
+              <div class="plan-strip" aria-label="Exempel på åtgärdsplansstatus">
+                <div>
+                  <span>Öppna ÅP</span>
+                  <strong>18</strong>
+                </div>
+                <div>
+                  <span>Förfallna</span>
+                  <strong>3</strong>
+                </div>
+                <div>
+                  <span>Uppföljda</span>
+                  <strong>42</strong>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
+
+            <article class="screen-card">
+              <div class="screen-top">
+                <span class="screen-title">Elev 360 och rapport</span>
+                <span class="screen-badge">Från signal till handling</span>
+              </div>
+              <div class="student-panel">
+                <div class="student-summary">
+                  <strong>Elevprofil · syntetiskt exempel</strong>
+                  <span>En elev med flera bedömningar, skiftande resultat och tydlig uppföljning i samma vy.</span>
+                  <div class="status-list">
+                    <div><span>Risk</span><strong>Medium</strong></div>
+                    <div><span>Trend</span><strong>Stabil</strong></div>
+                    <div><span>Uppföljning</span><strong>14 dagar</strong></div>
+                  </div>
+                </div>
+                <div class="report-summary">
+                  <strong>Pedagogisk rapport</strong>
+                  <span>Rapporten visar källor, bedömningar, snitt, slutbetyg, kommentarer och planerade insatser.</span>
+                  <div class="status-list">
+                    <div><span>Export</span><strong>PDF</strong></div>
+                    <div><span>Källor</span><strong>Spårbara</strong></div>
+                    <div><span>Beslut</span><strong>Lärare</strong></div>
+                  </div>
+                </div>
+              </div>
+              <div class="report-excerpt" aria-label="Syntetiskt exempel på rapporttext">
+                <h4>Utdrag ur pedagogisk rapport · Elev B</h4>
+                <p>Sammanställningen bygger på fyra bedömningar under terminen och visar både starka skriftliga resultat och ett behov av fortsatt muntlig uppföljning.</p>
+                <div class="assessment-trail" aria-label="Syntetiska bedömningar för samma elev">
+                  <div class="assessment-line">
+                    <span>Läsförståelse · prov Future Cities · 17/20p</span>
+                    <strong>A</strong>
+                  </div>
+                  <div class="assessment-line">
+                    <span>Skriftlig uppgift · My Future · 15/20p</span>
+                    <strong>C</strong>
+                  </div>
+                  <div class="assessment-line">
+                    <span>Muntlig presentation · 6/10p</span>
+                    <strong>D</strong>
+                  </div>
+                  <div class="assessment-line">
+                    <span>Grammatiktest · 14/20p</span>
+                    <strong>C</strong>
+                  </div>
+                </div>
+                <div class="report-note">
+                  <div>
+                    <strong>Lärarkommentar</strong>
+                    <span>Eleven visar god förståelse i läsning och kan utveckla resonemang skriftligt. Muntlig produktion behöver tränas i mindre steg med tydliga stödfraser och återkoppling.</span>
+                  </div>
+                  <div>
+                    <strong>Nästa steg</strong>
+                    <span>Planera en kort muntlig uppföljning inom två veckor och koppla resultatet till samma förmåga i matrisen innan slutlig sammanvägning.</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
